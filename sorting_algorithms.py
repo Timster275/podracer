@@ -62,6 +62,13 @@ def radix_sort(resource_owner):
                 yield resource_owner.get_snapshot()
         m = max(resource_owner.get_snapshot())
         exp = 1
+        rmn = 0
         while int(m / exp) > 0:
-            yield from counting_sort(resource_owner, exp)
+            for element in counting_sort(resource_owner, exp):
+                if rmn > 25:
+                    yield element
+                    rmn = 0
+                rmn += 1
+            # yield from counting_sort(resource_owner, exp)
             exp *= 10
+        yield resource_owner.get_snapshot()
