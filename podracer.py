@@ -11,8 +11,11 @@ class ResourceOwner:
     reads = 0
     writes = 0
 
-    def __init__(self, sample_size: int = 20):
-        self._data = np.random.randint(0, 10000, sample_size)
+    def __init__(self, sample_size: int = 20, data: List[int] = None):
+        if data is None:
+            self._data = np.random.randint(0, 10000, sample_size)
+        else:
+            self._data = data
         self.len = len(self._data)
     
     def plot(self):
