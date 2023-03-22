@@ -9,12 +9,12 @@ class DataGenerator():
         random.shuffle(dt)
         return dt
     
-    def exp(self):
+    def exp(self) -> List[int]:
         dt = [x**2 for x in range(self.sample_size)]
         random.shuffle(dt)
         return dt
     
-    def rand(self):
+    def rand(self) -> List[int]:
         dt = [random.randint(0, 10000) for x in range(self.sample_size)]
         random.shuffle(dt)
         return dt
